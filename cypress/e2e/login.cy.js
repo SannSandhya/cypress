@@ -52,19 +52,30 @@ describe('Test for Login  ', () => {
         cy.get('#login-button').should('be.visible').click()
         cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Username and password do not match any user in this service')
 
-
+    })
+    it('TC-LOGIN-08: Test for login works  and redirect to next page',()=>{
+        cy.get('#user-name').type('standard_user').should('have.value', 'standard_user')
+        cy.get('#password').type('secret_sauce').should('have.value', 'secret_sauce')
+        cy.get('#login-button').should('be.visible').and('be.enabled').click()
+        cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
+    
     })
 
+    it('TC-LOGIN-09: Test for pop up message appears after clicking  login ',()=>{
+         cy.get('#user-name').type('standard_user').should('have.value', 'standard_user')
+        cy.get('#password').type('secret_sauce').should('have.value', 'secret_sauce')
+        cy.get('#login-button').should('be.visible').and('be.enabled').click()
+        cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
+
+})
+it('TC-LOGIN-10: Test for  error  message for invalid username',()=>{
+        cy.get('#user-name').type('standard_user').should('have.value', 'standard_user')
+        cy.get('#password').type('secret_sauce').should('have.value', 'secret_sauce')
+        cy.get('#login-button').should('be.visible').and('be.enabled').click()
+        
+        
 
 
 
-
-
-
-
-
-
-
-
-
+})
 })
