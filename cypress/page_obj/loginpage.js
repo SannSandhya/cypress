@@ -1,15 +1,21 @@
- class Login {
+ class Loginpage {
      usernameInput()
-     { return cy.get('#username')}
+     { 
+        return cy.get('#username')
+    }
      passwordInput()
-     { return cy.get('#password')}
+     { 
+        return cy.get('#password')
+    }
       loginbutton()
-      { return cy.get('#login-button')}
-
+      { 
+        return cy.get('#login-button')
+    }
       login(username,password){
-      this.usernameInput().type(username)
-      this.passwordInput().type(password)
-      this.loginbutton().click()
+      login.usernameInput().type(username)
+      login.passwordInput().type(password)
+      login.loginbutton().click()
       }
 
  }
+ export default Loginpage
